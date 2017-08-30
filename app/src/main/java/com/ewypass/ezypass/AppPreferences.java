@@ -30,7 +30,7 @@ public class AppPreferences {
         _prefsEditor.commit();
     }
 
-    public ArrayList getUserShortcuts() {
+    public ArrayList<String> getUserShortcuts() {
         String userObject = _sharedPrefs.getString(KEY_PREFS_USER_SHORTCUTS, "");
         return (new Gson()).fromJson(userObject, ArrayList.class);
     }

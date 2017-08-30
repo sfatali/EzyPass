@@ -31,18 +31,18 @@
     <Button
         android:id="@+id/MainActivitybuttonAddShortcut"
         android:layout_width="179dp"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/listView"
+        android:layout_below="@+id/MainActivitylistViewShortcuts"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:text="Add Shortcut"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivityeditTextAppName"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/MainActivitytextViewResult"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityeditTextAppName" />
 
     <TextView
         android:id="@+id/MainActivitytextViewGenerate"
@@ -64,7 +64,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/listView" />
+        app:layout_constraintTop_toBottomOf="@+id/MainActivitylistViewShortcuts" />
 
     <TextView
         android:id="@+id/MainActivitytextViewPassGenerated"
@@ -135,7 +135,7 @@
         android:layout_marginEnd="8dp" />
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/MainActivitylistViewShortcuts"
         android:layout_width="match_parent"
         android:layout_height="235dp"
         android:layout_below="@+id/MainActivitytextViewShortcuts"

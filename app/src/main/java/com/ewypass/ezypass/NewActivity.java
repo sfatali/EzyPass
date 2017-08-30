@@ -10,21 +10,19 @@ import android.widget.EditText;
 
 public class NewActivity extends AppCompatActivity {
 
-    private Button importKeyButton;
-    private Button generateButton;
     private EditText importKeyEditText;
+    private AppPreferences appPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
 
-        AppPreferences appPreferences = new AppPreferences(getBaseContext());
+        this.appPreferences = new AppPreferences(getBaseContext());
         String userKey = appPreferences.getUserKey();
         if(userKey != null){
             Log.d(NewActivity.class.getName(), "User had a key");
-            Intent i = new Intent(NewActivity.this, MainActivity.class);
-            startActivity(i);
+            startMainActivity();
         }else{
             Log.w(NewActivity.class.getName(), "User had no key");
         }
@@ -32,19 +30,36 @@ public class NewActivity extends AppCompatActivity {
         /*
          * Define UI
          */
-        this.importKeyButton    = (Button) findViewById(R.id.NewActivitybuttonImport);
-        this.generateButton     = (Button) findViewById(R.id.NewActivitybuttonGenerate);
+        Button importKeyButton = (Button) findViewById(R.id.NewActivitybuttonImport);
+        Button generateButton = (Button) findViewById(R.id.NewActivitybuttonGenerate);
         this.importKeyEditText  = (EditText) findViewById(R.id.NewActivityeditTextImportKey);
 
         // Generate new key
-        this.generateButton.setOnClickListener(new View.OnClickListener() {
+        generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(NewActivity.this, MainActivity.class);
-                startActivity(i);
+                appPreferences.setUserKey(Generator.generateUserKey());
+                startMainActivity();
             }
         });
 
         // Import key
+        importKeyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String importedKey = importKeyEditText.getText().toString();
+                // TODO : validate imported key
+                appPreferences.setUserKey(importedKey);
+                startMainActivity();
+            }
+        });
+    }
+
+    /**
+     *
+     */
+    private void startMainActivity(){
+        Intent i = new Intent(NewActivity.this, MainActivity.class);
+        startActivity(i);
     }
 }
