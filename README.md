@@ -6,7 +6,6 @@
 
 ## Install EzyPass
  - Download the app
- - Register
  - Generate your secure key
 
 ## With EzyPass
