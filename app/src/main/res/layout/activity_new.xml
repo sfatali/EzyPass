@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ewypass.ezypass.NewActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <Button
+        android:id="@+id/NewActivitybuttonGenerate"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:text="Generate key"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="98dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/NewActivitytextViewTitleNew"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/NewActivitytextViewTitleNotNew" />
+
+    <Button
+        android:id="@+id/NewActivitybuttonImport"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_row="2"
+        android:text="Import key"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <EditText
+        android:id="@+id/NewActivityeditTextImportKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="4"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Enter your key here"
+        tools:layout_editor_absoluteY="263dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/NewActivitytextViewTitleNew"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:text="New to EzyPass ?"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteY="-1dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/NewActivitytextViewTitleNotNew"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:layout_column="0"
+        android:layout_row="3"
+        android:text="Already have a key ?"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteY="174dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
