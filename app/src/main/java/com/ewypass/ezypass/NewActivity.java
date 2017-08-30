@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 public class NewActivity extends AppCompatActivity {
 
     private EditText importKeyEditText;
@@ -39,6 +41,7 @@ public class NewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 appPreferences.setUserKey(Generator.generateUserKey());
+                appPreferences.setUserShortcut(new ArrayList<String>());
                 startMainActivity();
             }
         });
