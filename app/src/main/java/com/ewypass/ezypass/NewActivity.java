@@ -10,18 +10,23 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
+import javax.crypto.SecretKey;
+
 public class NewActivity extends AppCompatActivity {
 
     private EditText importKeyEditText;
     private AppPreferences appPreferences;
 
     @Override
+    /**
+     *
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
 
         this.appPreferences = new AppPreferences(getBaseContext());
-        String userKey = appPreferences.getUserKey();
+        SecretKey userKey = appPreferences.getUserKey();
         if(userKey != null){
             Log.d(NewActivity.class.getName(), "User had a key");
             startMainActivity();
@@ -51,8 +56,9 @@ public class NewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String importedKey = importKeyEditText.getText().toString();
+
                 // TODO : validate imported key
-                appPreferences.setUserKey(importedKey);
+                appPreferences.setUserKey(Generator.importSecretKey(importedKey));
                 startMainActivity();
             }
         });
