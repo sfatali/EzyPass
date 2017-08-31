@@ -2,9 +2,9 @@ package com.ewypass.ezypass;
 
 import android.util.Base64;
 
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -16,17 +16,17 @@ import javax.crypto.spec.SecretKeySpec;
 
 class Generator {
 
+    static final int USER_KEY_SIZE = 192;
+
     /**
      *
      * @return
      */
     static SecretKey generateUserKey(){
-        KeyGenerator keyGen = null;
         try {
-            keyGen = KeyGenerator.getInstance("AES");
-            keyGen.init(256); // for example
+            KeyGenerator keyGen = KeyGenerator.getInstance("DESede");
+            keyGen.init(USER_KEY_SIZE); // for example
             return keyGen.generateKey();
-            //Base64.encodeToString(secretKey.getEncoded(), Base64.DEFAULT);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -46,6 +46,7 @@ class Generator {
         return new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
     }
 
+
     /**
      * TODO : update encryption algorithm
      * @param appName
@@ -54,19 +55,23 @@ class Generator {
      * @return
      */
     static String generateUserPass(String appName, SecretKey userKey, int size){
-        // Create PBE Cipher
-        Cipher cipher;
-        try {
-            cipher = Cipher.getInstance("PBEWithMD5AndDES");
+        Base64.encodeToString(userKey.getEncoded(), Base64.DEFAULT);
+        /*byte[] key = (SALT2 + username + password).getBytes("UTF-8");
+        MessageDigest sha = MessageDigest.getInstance("SHA-1");
+        key = sha.digest(key);
+        key = Arrays.copyOf(key, 16); // use only first 128 bit
 
-            // Initialize PBE Cipher with key and parameters
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");*/
+
+        try {
+            Cipher cipher = Cipher.getInstance("DESede/CBC/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, userKey);
 
             // Encrypt
-            String encrypted = Arrays.toString(cipher.doFinal(appName.getBytes()));
+            String encrypted = Base64.encodeToString(cipher.doFinal(appName.getBytes("UTF-8")), Base64.DEFAULT);
 
             return encrypted.substring(0, size);
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException | BadPaddingException | IllegalBlockSizeException | InvalidKeyException e) {
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException | BadPaddingException | IllegalBlockSizeException | InvalidKeyException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
 

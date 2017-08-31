@@ -3,6 +3,7 @@ package com.ewypass.ezypass;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Base64;
 
 import com.google.gson.Gson;
 
@@ -33,7 +34,7 @@ class AppPreferences {
      */
     SecretKey getUserKey() {
         String userKey = _sharedPrefs.getString(KEY_PREFS_USER_KEY, "");
-        return (new Gson()).fromJson(userKey, SecretKey.class);
+        return Generator.importSecretKey(userKey);
     }
 
     /**
@@ -41,7 +42,7 @@ class AppPreferences {
      * @param userKey
      */
     void setUserKey(SecretKey userKey) {
-        _prefsEditor.putString(KEY_PREFS_USER_KEY, (new Gson()).toJson(userKey));
+        _prefsEditor.putString(KEY_PREFS_USER_KEY, Base64.encodeToString(userKey.getEncoded(), Base64.DEFAULT));
         _prefsEditor.commit();
     }
 

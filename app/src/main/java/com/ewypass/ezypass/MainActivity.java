@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Pass size
         passKeySize                 = SettingsActivity.PASSWORD_EXTENSION_DEFAULT_SIZE;
-        if(this.appPreferences.getUserPassSize() != 0){
+        try{
             passKeySize             = this.appPreferences.getUserPassSize();
-        }
+        }catch(Exception ignored){}
 
         // Generate pass
         generateButton.setOnClickListener(new View.OnClickListener() {
