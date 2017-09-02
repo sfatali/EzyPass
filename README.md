@@ -7,7 +7,7 @@
 - You can't remember a new combination for each website / apps
 
 ## Install EzyPass
- - Download the app
+ - [Download](https://play.google.com/store/apps/details?id=com.ewypass.ezypass) the app
  - Generate your secure key
 
 ## With EzyPass
