@@ -1,4 +1,4 @@
-package com.ewypass.ezypass;
+package com.ezypass.ezypass;
 
 import org.junit.Test;
 

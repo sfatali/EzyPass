@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ewypass.ezypass.MainActivity"
+    tools:context="com.ezypass.ezypass.MainActivity"
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
 
@@ -64,15 +64,13 @@
 
     <TextView
         android:id="@+id/MainActivitytextViewResult"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="23dp"
-        android:layout_alignBottom="@+id/MainActivitytextViewPassGenerated"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_toStartOf="@+id/MainActivitytextViewPassGenerated"
         android:layout_weight="1"
         android:textAlignment="center"
         android:textSize="18sp"
@@ -107,7 +105,6 @@
         android:layout_width="298dp"
         android:layout_height="33dp"
         android:layout_column="12"
-        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -143,6 +140,8 @@
         app:layout_constraintLeft_toRightOf="@+id/MainActivitytextViewShortcuts"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@android:drawable/ic_menu_manage"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
 </android.support.constraint.ConstraintLayout>

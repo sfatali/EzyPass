@@ -1,4 +1,4 @@
-package com.ewypass.ezypass;
+package com.ezypass.ezypass;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,9 @@ import java.util.ArrayList;
 
 import javax.crypto.SecretKey;
 
+/**
+ * Manage MainActivity UI
+ */
 public class MainActivity extends AppCompatActivity {
 
     private EditText appNameEditText;
@@ -26,9 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private int passKeySize;
 
     @Override
-    /**
-     *
-     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Pass size
         passKeySize                 = SettingsActivity.PASSWORD_EXTENSION_DEFAULT_SIZE;
-        try{
+        try {
             passKeySize             = this.appPreferences.getUserPassSize();
-        }catch(Exception ignored){}
+        } catch(Exception ignored){}
 
         // Generate pass
         generateButton.setOnClickListener(new View.OnClickListener() {
@@ -91,21 +91,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
+     * Update the list view to display user shortcuts
      */
-    private void updateListView(){
+    private void updateListView() {
         // Convert ArrayList to array
-        ArrayAdapter adapter = new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_list_item_1, this.shortcuts);
+        ArrayAdapter adapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_list_item_1, this.shortcuts);
         this.shortcutsListView.setAdapter(adapter);
     }
 
     /**
-     *
-     * @param appName
-     * @param userKey
-     * @param size
+     * Update the text view to display the generated password extension
+     * @param appName the app to generate the password extension
+     * @param userKey the user key
+     * @param size the size of the generated key
      */
-    private void generateToTextView(String appName, SecretKey userKey, int size){
+    private void generateToTextView(String appName, SecretKey userKey, int size) {
         passResultTextView.setText(Generator.generateUserPass(appName, userKey, size));
     }
 }

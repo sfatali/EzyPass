@@ -1,4 +1,4 @@
-package com.ewypass.ezypass;
+package com.ezypass.ezypass;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,27 +10,25 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
-import javax.crypto.SecretKey;
-
+/**
+ * Manage NewActivity UI
+ */
 public class NewActivity extends AppCompatActivity {
 
     private EditText importKeyEditText;
     private AppPreferences appPreferences;
 
     @Override
-    /**
-     *
-     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
 
         this.appPreferences = new AppPreferences(getBaseContext());
-         try{
-            SecretKey userKey = appPreferences.getUserKey();
+         try {
+            appPreferences.getUserKey();
             Log.d(NewActivity.class.getName(), "User had a key");
             startMainActivity();
-        }catch(Exception e){
+        } catch(Exception e){
             Log.w(NewActivity.class.getName(), "User had no key");
         }
 
@@ -65,9 +63,9 @@ public class NewActivity extends AppCompatActivity {
     }
 
     /**
-     *
+     * Start activity main
      */
-    private void startMainActivity(){
+    private void startMainActivity() {
         Intent i = new Intent(NewActivity.this, MainActivity.class);
         startActivity(i);
     }
