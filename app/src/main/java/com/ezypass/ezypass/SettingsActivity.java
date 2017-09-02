@@ -45,7 +45,7 @@ public class SettingsActivity extends AppCompatActivity {
         userPassSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if(progress >= PASSWORD_EXTENSION_MIN_SIZE){
+                if (progress >= PASSWORD_EXTENSION_MIN_SIZE) {
                     appPreferences.setUserPassSize(progress);
                     updateSeekBar();
                 }
@@ -71,7 +71,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         try {
             passSize = appPreferences.getUserPassSize();
-        } catch(Exception e) {
+        } catch (Exception e) {
             passSize = PASSWORD_EXTENSION_DEFAULT_SIZE;
         }
 

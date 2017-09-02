@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Update user pass size
+     * @return current value of user pass size
      */
     private int updateUserPassSize(){
         // Pass size
