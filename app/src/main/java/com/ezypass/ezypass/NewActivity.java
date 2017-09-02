@@ -63,7 +63,7 @@ public class NewActivity extends AppCompatActivity {
             appPreferences.getUserKey();
             Log.d(NewActivity.class.getName(), "User had a key");
             startMainActivity();
-        } catch (Exception e){
+        }catch (Exception e){
             Log.w(NewActivity.class.getName(), "User had no key");
         }
     }
