@@ -1,5 +1,7 @@
 # EzyPass
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/86ec7d65af8f4a79b796bd5f8cc60ada)](https://www.codacy.com/app/paul.bouquet/EzyPass?utm_source=github.com&utm_medium=referral&utm_content=Herklos/EzyPass&utm_campaign=badger)
+
 ## You
 - You remember a basic secure password
 - You can't remember a new combination for each website / apps
