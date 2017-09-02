@@ -43,6 +43,14 @@ class Generator {
         return new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
     }
 
+    /**
+     *
+     * @param key
+     * @return
+     */
+    static String keyToString(SecretKey key){
+        return Base64.encodeToString(key.getEncoded(), Base64.DEFAULT);
+    }
 
     /**
      * TODO : update encryption algorithm
@@ -59,7 +67,7 @@ class Generator {
             key = Arrays.copyOf(key, 16); // use only first 128 bit
 
             SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
-            String resultingKey = Base64.encodeToString(secretKeySpec.getEncoded(), Base64.DEFAULT);
+            String resultingKey = keyToString(secretKeySpec);
             return resultingKey.substring(0, size);
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
             e.printStackTrace();

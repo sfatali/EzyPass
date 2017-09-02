@@ -1,5 +1,6 @@
 package com.ewypass.ezypass;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
          */
         Button addShortcutButton    = (Button) findViewById(R.id.MainActivitybuttonAddShortcut);
         Button generateButton       = (Button) findViewById(R.id.MainActivitybuttonGenerate);
+        ImageButton settingsButton  = (ImageButton) findViewById(R.id.MainActivityimageButtonSettings);
         this.appNameEditText        = (EditText) findViewById(R.id.MainActivityeditTextAppName);
         this.passResultTextView     = (TextView) findViewById(R.id.MainActivitytextViewResult);
         this.shortcutsListView      = (ListView) findViewById(R.id.MainActivitylistViewShortcuts);
@@ -74,6 +77,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 generateToTextView(shortcuts.get(position), appPreferences.getUserKey(), passKeySize);
+            }
+        });
+
+        // manage settings button
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(i);
             }
         });
     }
