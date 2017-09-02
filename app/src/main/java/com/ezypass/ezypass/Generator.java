@@ -1,4 +1,4 @@
-package com.ewypass.ezypass;
+package com.ezypass.ezypass;
 
 import android.util.Base64;
 
@@ -16,8 +16,8 @@ class Generator {
     private static final int USER_KEY_SIZE = 192;
 
     /**
-     *
-     * @return
+     * Generate the new user key
+     * @return the key generated
      */
     public static SecretKey generateUserKey(){
         try {
@@ -31,9 +31,9 @@ class Generator {
     }
 
     /**
-     *
-     * @param imported
-     * @return
+     * Transform imported string key to user key
+     * @param imported the imported key
+     * @return the imported key
      */
     public static SecretKey importSecretKey(String imported){
         // decode the base64 encoded string
@@ -44,20 +44,22 @@ class Generator {
     }
 
     /**
-     *
-     * @param key
-     * @return
+     * Transform key to string
+     * @param key the key to transform
+     * @return the key to string
      */
     public static String keyToString(SecretKey key){
         return Base64.encodeToString(key.getEncoded(), Base64.DEFAULT);
     }
 
+
     /**
+     * Generate the key
+     * @param appName the app to generate the key
+     * @param userKey the user key
+     * @param size the size of the key to generate
+     * @return the key generated
      * TODO : update encryption algorithm
-     * @param appName
-     * @param userKey
-     * @param size
-     * @return
      */
     public static String generateUserPass(String appName, SecretKey userKey, int size){
         try {

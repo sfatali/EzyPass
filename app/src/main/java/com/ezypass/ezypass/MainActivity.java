@@ -1,4 +1,4 @@
-package com.ewypass.ezypass;
+package com.ezypass.ezypass;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private int passKeySize;
 
     @Override
-    /**
-     *
-     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -91,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
+     * Update the list view to display user shortcuts
      */
     private void updateListView(){
         // Convert ArrayList to array
@@ -100,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
-     * @param appName
-     * @param userKey
-     * @param size
+     * Update the text view to display the generated password extension
+     * @param appName the app to generate the password extension
+     * @param userKey the user key
+     * @param size the size of the generated key
      */
     private void generateToTextView(String appName, SecretKey userKey, int size){
         passResultTextView.setText(Generator.generateUserPass(appName, userKey, size));

@@ -1,4 +1,4 @@
-package com.ewypass.ezypass;
+package com.ezypass.ezypass;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +16,6 @@ public class NewActivity extends AppCompatActivity {
     private AppPreferences appPreferences;
 
     @Override
-    /**
-     *
-     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
@@ -63,7 +60,7 @@ public class NewActivity extends AppCompatActivity {
     }
 
     /**
-     *
+     * Start activity main
      */
     private void startMainActivity(){
         Intent i = new Intent(NewActivity.this, MainActivity.class);

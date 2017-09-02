@@ -1,4 +1,4 @@
-package com.ewypass.ezypass;
+package com.ezypass.ezypass;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,8 +20,8 @@ class AppPreferences {
     private SharedPreferences.Editor _prefsEditor;
 
     /**
-     *
-     * @param context
+     * Constructor
+     * @param context context
      */
     public AppPreferences(Context context) {
         this._sharedPrefs = context.getSharedPreferences(APP_SHARED_PREFS, Activity.MODE_PRIVATE);
@@ -29,8 +29,8 @@ class AppPreferences {
     }
 
     /**
-     *
-     * @return
+     * Get the user key
+     * @return the registered user key
      */
     public SecretKey getUserKey() {
         String userKey = _sharedPrefs.getString(KEY_PREFS_USER_KEY, "");
@@ -38,8 +38,8 @@ class AppPreferences {
     }
 
     /**
-     *
-     * @param userKey
+     * Set the user key
+     * @param userKey new user key
      */
     public void setUserKey(SecretKey userKey) {
         _prefsEditor.putString(KEY_PREFS_USER_KEY, Base64.encodeToString(userKey.getEncoded(), Base64.DEFAULT));
@@ -47,8 +47,8 @@ class AppPreferences {
     }
 
     /**
-     *
-     * @return
+     * Get user shortcuts
+     * @return user shortcuts into ArrayList
      */
     public ArrayList<String> getUserShortcuts() {
         String userObject = _sharedPrefs.getString(KEY_PREFS_USER_SHORTCUTS, "");
@@ -56,8 +56,8 @@ class AppPreferences {
     }
 
     /**
-     *
-     * @param userShortcuts
+     * Set user shortcuts
+     * @param userShortcuts user shortcuts from ArrayList
      */
     public void setUserShortcut(ArrayList<String> userShortcuts) {
         _prefsEditor.putString(KEY_PREFS_USER_SHORTCUTS, (new Gson()).toJson(userShortcuts));
@@ -65,8 +65,8 @@ class AppPreferences {
     }
 
     /**
-     *
-     * @return
+     * Get user password extension size configuration
+     * @return the password extension size
      */
     public int getUserPassSize() {
         String userPassSize = _sharedPrefs.getString(KEY_PREFS_USER_PASSSIZE, "");
@@ -74,8 +74,8 @@ class AppPreferences {
     }
 
     /**
-     *
-     * @param userPassSize
+     * Set the new password extension size configuration
+     * @param userPassSize the new size
      */
     public void setUserPassSize(int userPassSize) {
         _prefsEditor.putString(KEY_PREFS_USER_PASSSIZE, (new Gson()).toJson(userPassSize));
