@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private ListView shortcutsListView;
     private ArrayList<String> shortcuts;
     private AppPreferences appPreferences;
-    private int passKeySize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,17 +44,11 @@ public class MainActivity extends AppCompatActivity {
         this.passResultTextView         = (TextView) findViewById(R.id.MainActivitytextViewResult);
         this.shortcutsListView          = (ListView) findViewById(R.id.MainActivitylistViewShortcuts);
 
-        // Pass size
-        passKeySize                 = SettingsActivity.PASSWORD_EXTENSION_DEFAULT_SIZE;
-        try {
-            passKeySize             = this.appPreferences.getUserPassSize();
-        }catch (Exception ignored) {}
-
         // Generate pass
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                generateToTextView(appNameEditText.getText().toString(), appPreferences.getUserKey(), passKeySize);
+                generateToTextView(appNameEditText.getText().toString(), appPreferences.getUserKey(), updateUserPassSize());
             }
         });
 
@@ -64,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String newShortcut = appNameEditText.getText().toString();
-                if(!newShortcut.isEmpty() && !shortcuts.contains(newShortcut)) {
+                if (!newShortcut.isEmpty() && !shortcuts.contains(newShortcut)) {
                     shortcuts.add(appNameEditText.getText().toString());
                     appPreferences.setUserShortcut(shortcuts);
                     updateListView();
@@ -77,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         shortcutsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                generateToTextView(shortcuts.get(position), appPreferences.getUserKey(), passKeySize);
+                generateToTextView(shortcuts.get(position), appPreferences.getUserKey(), updateUserPassSize());
             }
         });
 
@@ -118,5 +111,17 @@ public class MainActivity extends AppCompatActivity {
      */
     private void generateToTextView(String appName, SecretKey userKey, int size) {
         passResultTextView.setText(Generator.generateUserPass(appName, userKey, size));
+    }
+
+    /**
+     * Update user pass size
+     */
+    private int updateUserPassSize(){
+        // Pass size
+        try {
+            return this.appPreferences.getUserPassSize();
+        } catch (Exception ignored) {
+            return SettingsActivity.PASSWORD_EXTENSION_DEFAULT_SIZE;
+        }
     }
 }
