@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -39,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
         /*
          * Define UI
          */
-        Button addShortcutButton    = (Button) findViewById(R.id.MainActivitybuttonAddShortcut);
-        Button generateButton       = (Button) findViewById(R.id.MainActivitybuttonGenerate);
-        ImageButton settingsButton  = (ImageButton) findViewById(R.id.MainActivityimageButtonSettings);
-        this.appNameEditText        = (EditText) findViewById(R.id.MainActivityeditTextAppName);
-        this.passResultTextView     = (TextView) findViewById(R.id.MainActivitytextViewResult);
-        this.shortcutsListView      = (ListView) findViewById(R.id.MainActivitylistViewShortcuts);
+        ImageButton addShortcutButton   = (ImageButton) findViewById(R.id.MainActivityImagebuttonAddShortcut);
+        ImageButton generateButton      = (ImageButton) findViewById(R.id.MainActivityimageButtonGenerate);
+        ImageButton settingsButton      = (ImageButton) findViewById(R.id.MainActivityimageButtonSettings);
+        this.appNameEditText            = (EditText) findViewById(R.id.MainActivityeditTextAppName);
+        this.passResultTextView         = (TextView) findViewById(R.id.MainActivitytextViewResult);
+        this.shortcutsListView          = (ListView) findViewById(R.id.MainActivitylistViewShortcuts);
 
         // Pass size
         passKeySize                 = SettingsActivity.PASSWORD_EXTENSION_DEFAULT_SIZE;
@@ -64,15 +63,17 @@ public class MainActivity extends AppCompatActivity {
         addShortcutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO : verify exists
+            String newShortcut = appNameEditText.getText().toString();
+            if(!newShortcut.isEmpty() && !shortcuts.contains(newShortcut)) {
                 shortcuts.add(appNameEditText.getText().toString());
                 appPreferences.setUserShortcut(shortcuts);
                 updateListView();
             }
+            }
         });
         updateListView();
 
-        // manage shortcuts click
+        // listview click
         shortcutsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -80,7 +81,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // manage settings button
+        // listview long click
+        shortcutsListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                shortcuts.remove(position);
+                updateListView();
+                return false;
+            }
+        });
+
+        // settings button click
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
