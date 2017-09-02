@@ -19,6 +19,9 @@ class Generator {
     // Define user key size
     private static final int USER_KEY_SIZE = 192;
 
+    // Get only the first 128 bits
+    private static final int FIRST_128_BITS = 16;
+
     /**
      * Generate the new user key
      * @return the key generated
@@ -26,7 +29,7 @@ class Generator {
     public static SecretKey generateUserKey() {
         try {
             KeyGenerator keyGen = KeyGenerator.getInstance("DESede");
-            keyGen.init(USER_KEY_SIZE); // for example
+            keyGen.init(USER_KEY_SIZE);
             return keyGen.generateKey();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -70,7 +73,7 @@ class Generator {
             byte[] fullByteKey = (appName + userKey).getBytes("UTF-8");
             MessageDigest sha = MessageDigest.getInstance("SHA-1");
             byte[] key = sha.digest(fullByteKey);
-            key = Arrays.copyOf(key, 16);
+            key = Arrays.copyOf(key, FIRST_128_BITS);
 
             SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
             String resultingKey = keyToString(secretKeySpec);

@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void updateListView() {
         // Convert ArrayList to array
-        ArrayAdapter adapter = new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_list_item_1, this.shortcuts);
+        ArrayAdapter adapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_list_item_1, this.shortcuts);
         this.shortcutsListView.setAdapter(adapter);
     }
 

@@ -21,7 +21,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         this.appPreferences = new AppPreferences(getBaseContext());
-        
+
          /*
          * Define UI
          */

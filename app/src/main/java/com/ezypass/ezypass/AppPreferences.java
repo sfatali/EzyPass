@@ -18,7 +18,7 @@ class AppPreferences {
     private static final String KEY_PREFS_USER_KEY = "EzyPass_User_Secret_key";
     private static final String KEY_PREFS_USER_SHORTCUTS = "EzyPass_User_shotcuts";
     private static final String KEY_PREFS_USER_PASSSIZE = "EzyPass_User_Pass_size";
-    private static final String APP_SHARED_PREFS = AppPreferences.class.getSimpleName(); //  Name of the file -.xml
+    private static final String APP_SHARED_PREFS = AppPreferences.class.getSimpleName();
     private SharedPreferences sharedPrefs;
     private SharedPreferences.Editor prefsEditor;
 
@@ -26,7 +26,7 @@ class AppPreferences {
      * Constructor
      * @param context context
      */
-    public AppPreferences(Context context) {
+    AppPreferences(Context context) {
         this.sharedPrefs = context.getSharedPreferences(APP_SHARED_PREFS, Activity.MODE_PRIVATE);
         this.prefsEditor = sharedPrefs.edit();
     }
