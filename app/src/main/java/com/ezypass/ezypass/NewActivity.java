@@ -24,11 +24,11 @@ public class NewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new);
 
         this.appPreferences = new AppPreferences(getBaseContext());
-         try{
+         try {
             appPreferences.getUserKey();
             Log.d(NewActivity.class.getName(), "User had a key");
             startMainActivity();
-        }catch(Exception e){
+        } catch(Exception e){
             Log.w(NewActivity.class.getName(), "User had no key");
         }
 
@@ -65,7 +65,7 @@ public class NewActivity extends AppCompatActivity {
     /**
      * Start activity main
      */
-    private void startMainActivity(){
+    private void startMainActivity() {
         Intent i = new Intent(NewActivity.this, MainActivity.class);
         startActivity(i);
     }

@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Pass size
         passKeySize                 = SettingsActivity.PASSWORD_EXTENSION_DEFAULT_SIZE;
-        try{
+        try {
             passKeySize             = this.appPreferences.getUserPassSize();
         } catch(Exception ignored){}
 
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Update the list view to display user shortcuts
      */
-    private void updateListView(){
+    private void updateListView() {
         // Convert ArrayList to array
         ArrayAdapter adapter = new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_list_item_1, this.shortcuts);
         this.shortcutsListView.setAdapter(adapter);
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
      * @param userKey the user key
      * @param size the size of the generated key
      */
-    private void generateToTextView(String appName, SecretKey userKey, int size){
+    private void generateToTextView(String appName, SecretKey userKey, int size) {
         passResultTextView.setText(Generator.generateUserPass(appName, userKey, size));
     }
 }

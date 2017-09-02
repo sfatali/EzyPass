@@ -16,13 +16,14 @@ import javax.crypto.spec.SecretKeySpec;
  */
 class Generator {
 
+    // Define user key size
     private static final int USER_KEY_SIZE = 192;
 
     /**
      * Generate the new user key
      * @return the key generated
      */
-    public static SecretKey generateUserKey(){
+    public static SecretKey generateUserKey() {
         try {
             KeyGenerator keyGen = KeyGenerator.getInstance("DESede");
             keyGen.init(USER_KEY_SIZE); // for example
@@ -38,7 +39,7 @@ class Generator {
      * @param imported the imported key
      * @return the imported key
      */
-    public static SecretKey importSecretKey(String imported){
+    public static SecretKey importSecretKey(String imported) {
         // decode the base64 encoded string
         byte[] decodedKey = Base64.decode(imported, Base64.DEFAULT);
 
@@ -51,7 +52,7 @@ class Generator {
      * @param key the key to transform
      * @return the key to string
      */
-    public static String keyToString(SecretKey key){
+    public static String keyToString(SecretKey key) {
         return Base64.encodeToString(key.getEncoded(), Base64.DEFAULT);
     }
 
@@ -64,12 +65,12 @@ class Generator {
      * @return the key generated
      * TODO : update encryption algorithm
      */
-    public static String generateUserPass(String appName, SecretKey userKey, int size){
+    public static String generateUserPass(String appName, SecretKey userKey, int size) {
         try {
             byte[] fullByteKey = (appName + userKey).getBytes("UTF-8");
             MessageDigest sha = MessageDigest.getInstance("SHA-1");
             byte[] key = sha.digest(fullByteKey);
-            key = Arrays.copyOf(key, 16); // use only first 128 bit
+            key = Arrays.copyOf(key, 16);
 
             SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
             String resultingKey = keyToString(secretKeySpec);

@@ -9,7 +9,10 @@ import android.widget.TextView;
  */
 public class SettingsActivity extends AppCompatActivity {
 
+    // Define default password extension size
     public static final int PASSWORD_EXTENSION_DEFAULT_SIZE = 4;
+
+    // Instance of user app preferences
     private AppPreferences appPreferences;
 
     @Override
