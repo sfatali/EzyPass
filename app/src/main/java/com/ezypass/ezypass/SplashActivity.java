@@ -7,6 +7,9 @@ import android.util.Log;
 
 import com.ezypass.ezypass.welcome.MainWelcomeActivity;
 
+/**
+ * Manage redirection to welcome / main activity at startup
+ */
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -18,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
             appPreferences.getUserKey();
             Log.d(NewActivity.class.getName(), "User had a key");
             startMainActivity();
-        } catch(Exception e){
+        } catch (Exception e){
             Log.w(NewActivity.class.getName(), "User had no key");
             startNewActivity();
             startWelcomeActivity();

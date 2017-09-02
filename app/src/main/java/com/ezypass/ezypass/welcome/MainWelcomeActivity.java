@@ -6,6 +6,9 @@ import com.stephentuso.welcome.TitlePage;
 import com.stephentuso.welcome.WelcomeActivity;
 import com.stephentuso.welcome.WelcomeConfiguration;
 
+/**
+ * Manage welcome pages
+ */
 public class MainWelcomeActivity extends WelcomeActivity {
 
     @Override
