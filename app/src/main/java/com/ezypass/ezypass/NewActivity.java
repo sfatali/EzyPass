@@ -23,20 +23,13 @@ public class NewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
 
-        this.appPreferences = new AppPreferences(getBaseContext());
-         try {
-            appPreferences.getUserKey();
-            Log.d(NewActivity.class.getName(), "User had a key");
-            startMainActivity();
-        } catch(Exception e){
-            Log.w(NewActivity.class.getName(), "User had no key");
-        }
+        appPreferences = new AppPreferences(getBaseContext());
 
         /*
          * Define UI
          */
-        Button importKeyButton = (Button) findViewById(R.id.NewActivitybuttonImport);
-        Button generateButton = (Button) findViewById(R.id.NewActivitybuttonGenerate);
+        Button importKeyButton  = (Button) findViewById(R.id.NewActivitybuttonImport);
+        Button generateButton   = (Button) findViewById(R.id.NewActivitybuttonGenerate);
         this.importKeyEditText  = (EditText) findViewById(R.id.NewActivityeditTextImportKey);
 
         // Generate new key
@@ -50,16 +43,29 @@ public class NewActivity extends AppCompatActivity {
         });
 
         // Import key
+        // TODO : validate imported key
         importKeyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String importedKey = importKeyEditText.getText().toString();
-
-                // TODO : validate imported key
-                appPreferences.setUserKey(Generator.importSecretKey(importedKey));
-                startMainActivity();
+                if(!importedKey.isEmpty()){
+                    appPreferences.setUserKey(Generator.importSecretKey(importedKey));
+                    startMainActivity();
+                }
             }
         });
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            appPreferences.getUserKey();
+            Log.d(NewActivity.class.getName(), "User had a key");
+            startMainActivity();
+        } catch(Exception e){
+            Log.w(NewActivity.class.getName(), "User had no key");
+        }
     }
 
     /**
