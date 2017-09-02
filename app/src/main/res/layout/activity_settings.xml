@@ -21,27 +21,73 @@
         android:layout_marginEnd="8dp" />
 
     <TextView
+        android:id="@+id/SettingsActivitytextViewPassSizeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="16dp"
+        android:text="My pass size : "
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="62dp"
+        app:layout_constraintTop_toBottomOf="@+id/SettingsActivitytextViewKeyTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
         android:id="@+id/SettingsActivitytextViewKeyTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
         android:text="My key : "
+        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/SettingsActivitytextViewKey"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="21dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/SettingsActivitytextViewKeyTitle"
+        android:textIsSelectable="true"
+        android:textSize="18sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SettingsActivitytextViewMyAccount"
+        app:layout_constraintLeft_toRightOf="@+id/SettingsActivitytextViewKeyTitle"
+        android:layout_marginLeft="8dp" />
+
+    <SeekBar
+        android:id="@+id/SettingsActivityseekBarPassSize"
+        style="@android:style/Widget.Material.Light.SeekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginTop="134dp"
+        android:max="8"
+        android:progress="1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/SettingsAvticitytextViewPassSize"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/SettingsAvticitytextViewPassSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@+id/SettingsActivitytextViewPassSizeTitle"
+        android:layout_marginLeft="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="355dp" />
 </android.support.constraint.ConstraintLayout>
