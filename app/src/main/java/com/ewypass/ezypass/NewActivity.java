@@ -10,8 +10,6 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
-import javax.crypto.SecretKey;
-
 public class NewActivity extends AppCompatActivity {
 
     private EditText importKeyEditText;
@@ -27,7 +25,7 @@ public class NewActivity extends AppCompatActivity {
 
         this.appPreferences = new AppPreferences(getBaseContext());
          try{
-            SecretKey userKey = appPreferences.getUserKey();
+            appPreferences.getUserKey();
             Log.d(NewActivity.class.getName(), "User had a key");
             startMainActivity();
         }catch(Exception e){

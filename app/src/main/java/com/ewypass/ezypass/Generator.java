@@ -13,13 +13,13 @@ import javax.crypto.spec.SecretKeySpec;
 
 class Generator {
 
-    static final int USER_KEY_SIZE = 192;
+    private static final int USER_KEY_SIZE = 192;
 
     /**
      *
      * @return
      */
-    static SecretKey generateUserKey(){
+    public static SecretKey generateUserKey(){
         try {
             KeyGenerator keyGen = KeyGenerator.getInstance("DESede");
             keyGen.init(USER_KEY_SIZE); // for example
@@ -35,7 +35,7 @@ class Generator {
      * @param imported
      * @return
      */
-    static SecretKey importSecretKey(String imported){
+    public static SecretKey importSecretKey(String imported){
         // decode the base64 encoded string
         byte[] decodedKey = Base64.decode(imported, Base64.DEFAULT);
 
@@ -48,7 +48,7 @@ class Generator {
      * @param key
      * @return
      */
-    static String keyToString(SecretKey key){
+    public static String keyToString(SecretKey key){
         return Base64.encodeToString(key.getEncoded(), Base64.DEFAULT);
     }
 
@@ -59,7 +59,7 @@ class Generator {
      * @param size
      * @return
      */
-    static String generateUserPass(String appName, SecretKey userKey, int size){
+    public static String generateUserPass(String appName, SecretKey userKey, int size){
         try {
             byte[] fullByteKey = (appName + userKey).getBytes("UTF-8");
             MessageDigest sha = MessageDigest.getInstance("SHA-1");

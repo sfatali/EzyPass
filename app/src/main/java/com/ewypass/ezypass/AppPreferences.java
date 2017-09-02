@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import javax.crypto.SecretKey;
 
 class AppPreferences {
-    static final String KEY_PREFS_USER_KEY= "EzyPass_User_Secret_key";
-    static final String KEY_PREFS_USER_SHORTCUTS= "EzyPass_User_shotcuts";
-    static final String KEY_PREFS_USER_PASSSIZE= "EzyPass_User_Pass_size";
+    private static final String KEY_PREFS_USER_KEY= "EzyPass_User_Secret_key";
+    private static final String KEY_PREFS_USER_SHORTCUTS= "EzyPass_User_shotcuts";
+    private static final String KEY_PREFS_USER_PASSSIZE= "EzyPass_User_Pass_size";
     private static final String APP_SHARED_PREFS = AppPreferences.class.getSimpleName(); //  Name of the file -.xml
     private SharedPreferences _sharedPrefs;
     private SharedPreferences.Editor _prefsEditor;
@@ -23,7 +23,7 @@ class AppPreferences {
      *
      * @param context
      */
-    AppPreferences(Context context) {
+    public AppPreferences(Context context) {
         this._sharedPrefs = context.getSharedPreferences(APP_SHARED_PREFS, Activity.MODE_PRIVATE);
         this._prefsEditor = _sharedPrefs.edit();
     }
@@ -32,7 +32,7 @@ class AppPreferences {
      *
      * @return
      */
-    SecretKey getUserKey() {
+    public SecretKey getUserKey() {
         String userKey = _sharedPrefs.getString(KEY_PREFS_USER_KEY, "");
         return Generator.importSecretKey(userKey);
     }
@@ -41,7 +41,7 @@ class AppPreferences {
      *
      * @param userKey
      */
-    void setUserKey(SecretKey userKey) {
+    public void setUserKey(SecretKey userKey) {
         _prefsEditor.putString(KEY_PREFS_USER_KEY, Base64.encodeToString(userKey.getEncoded(), Base64.DEFAULT));
         _prefsEditor.commit();
     }
@@ -50,7 +50,7 @@ class AppPreferences {
      *
      * @return
      */
-    ArrayList<String> getUserShortcuts() {
+    public ArrayList<String> getUserShortcuts() {
         String userObject = _sharedPrefs.getString(KEY_PREFS_USER_SHORTCUTS, "");
         return (new Gson()).fromJson(userObject, ArrayList.class);
     }
@@ -59,7 +59,7 @@ class AppPreferences {
      *
      * @param userShortcuts
      */
-    void setUserShortcut(ArrayList<String> userShortcuts) {
+    public void setUserShortcut(ArrayList<String> userShortcuts) {
         _prefsEditor.putString(KEY_PREFS_USER_SHORTCUTS, (new Gson()).toJson(userShortcuts));
         _prefsEditor.commit();
     }
@@ -68,7 +68,7 @@ class AppPreferences {
      *
      * @return
      */
-    int getUserPassSize() {
+    public int getUserPassSize() {
         String userPassSize = _sharedPrefs.getString(KEY_PREFS_USER_PASSSIZE, "");
         return (new Gson()).fromJson(userPassSize, Integer.class);
     }
