@@ -48,7 +48,7 @@ public class NewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String importedKey = importKeyEditText.getText().toString();
-                if(!importedKey.isEmpty()){
+                if (!importedKey.isEmpty()) {
                     appPreferences.setUserKey(Generator.importSecretKey(importedKey));
                     startMainActivity();
                 }
@@ -57,13 +57,13 @@ public class NewActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         try {
             appPreferences.getUserKey();
             Log.d(NewActivity.class.getName(), "User had a key");
             startMainActivity();
-        } catch(Exception e){
+        }catch (Exception e){
             Log.w(NewActivity.class.getName(), "User had no key");
         }
     }
