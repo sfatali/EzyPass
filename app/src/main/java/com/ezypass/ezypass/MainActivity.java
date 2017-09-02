@@ -16,6 +16,9 @@ import java.util.ArrayList;
 
 import javax.crypto.SecretKey;
 
+/**
+ * Manage MainActivity UI
+ */
 public class MainActivity extends AppCompatActivity {
 
     private EditText appNameEditText;
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         passKeySize                 = SettingsActivity.PASSWORD_EXTENSION_DEFAULT_SIZE;
         try{
             passKeySize             = this.appPreferences.getUserPassSize();
-        }catch(Exception ignored){}
+        } catch(Exception ignored){}
 
         // Generate pass
         generateButton.setOnClickListener(new View.OnClickListener() {

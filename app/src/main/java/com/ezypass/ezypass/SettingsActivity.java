@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * Manage SettingsActivity UI
+ */
 public class SettingsActivity extends AppCompatActivity {
 
     public static final int PASSWORD_EXTENSION_DEFAULT_SIZE = 4;

@@ -11,21 +11,24 @@ import java.util.ArrayList;
 
 import javax.crypto.SecretKey;
 
+/**
+ * Manage user app preferences
+ */
 class AppPreferences {
-    private static final String KEY_PREFS_USER_KEY= "EzyPass_User_Secret_key";
-    private static final String KEY_PREFS_USER_SHORTCUTS= "EzyPass_User_shotcuts";
-    private static final String KEY_PREFS_USER_PASSSIZE= "EzyPass_User_Pass_size";
+    private static final String KEY_PREFS_USER_KEY = "EzyPass_User_Secret_key";
+    private static final String KEY_PREFS_USER_SHORTCUTS = "EzyPass_User_shotcuts";
+    private static final String KEY_PREFS_USER_PASSSIZE = "EzyPass_User_Pass_size";
     private static final String APP_SHARED_PREFS = AppPreferences.class.getSimpleName(); //  Name of the file -.xml
-    private SharedPreferences _sharedPrefs;
-    private SharedPreferences.Editor _prefsEditor;
+    private SharedPreferences sharedPrefs;
+    private SharedPreferences.Editor prefsEditor;
 
     /**
      * Constructor
      * @param context context
      */
     public AppPreferences(Context context) {
-        this._sharedPrefs = context.getSharedPreferences(APP_SHARED_PREFS, Activity.MODE_PRIVATE);
-        this._prefsEditor = _sharedPrefs.edit();
+        this.sharedPrefs = context.getSharedPreferences(APP_SHARED_PREFS, Activity.MODE_PRIVATE);
+        this.prefsEditor = sharedPrefs.edit();
     }
 
     /**
@@ -33,7 +36,7 @@ class AppPreferences {
      * @return the registered user key
      */
     public SecretKey getUserKey() {
-        String userKey = _sharedPrefs.getString(KEY_PREFS_USER_KEY, "");
+        String userKey = sharedPrefs.getString(KEY_PREFS_USER_KEY, "");
         return Generator.importSecretKey(userKey);
     }
 
@@ -42,8 +45,8 @@ class AppPreferences {
      * @param userKey new user key
      */
     public void setUserKey(SecretKey userKey) {
-        _prefsEditor.putString(KEY_PREFS_USER_KEY, Base64.encodeToString(userKey.getEncoded(), Base64.DEFAULT));
-        _prefsEditor.commit();
+        prefsEditor.putString(KEY_PREFS_USER_KEY, Base64.encodeToString(userKey.getEncoded(), Base64.DEFAULT));
+        prefsEditor.commit();
     }
 
     /**
@@ -51,7 +54,7 @@ class AppPreferences {
      * @return user shortcuts into ArrayList
      */
     public ArrayList<String> getUserShortcuts() {
-        String userObject = _sharedPrefs.getString(KEY_PREFS_USER_SHORTCUTS, "");
+        String userObject = sharedPrefs.getString(KEY_PREFS_USER_SHORTCUTS, "");
         return (new Gson()).fromJson(userObject, ArrayList.class);
     }
 
@@ -60,8 +63,8 @@ class AppPreferences {
      * @param userShortcuts user shortcuts from ArrayList
      */
     public void setUserShortcut(ArrayList<String> userShortcuts) {
-        _prefsEditor.putString(KEY_PREFS_USER_SHORTCUTS, (new Gson()).toJson(userShortcuts));
-        _prefsEditor.commit();
+        prefsEditor.putString(KEY_PREFS_USER_SHORTCUTS, (new Gson()).toJson(userShortcuts));
+        prefsEditor.commit();
     }
 
     /**
@@ -69,7 +72,7 @@ class AppPreferences {
      * @return the password extension size
      */
     public int getUserPassSize() {
-        String userPassSize = _sharedPrefs.getString(KEY_PREFS_USER_PASSSIZE, "");
+        String userPassSize = sharedPrefs.getString(KEY_PREFS_USER_PASSSIZE, "");
         return (new Gson()).fromJson(userPassSize, Integer.class);
     }
 
@@ -78,7 +81,7 @@ class AppPreferences {
      * @param userPassSize the new size
      */
     public void setUserPassSize(int userPassSize) {
-        _prefsEditor.putString(KEY_PREFS_USER_PASSSIZE, (new Gson()).toJson(userPassSize));
-        _prefsEditor.commit();
+        prefsEditor.putString(KEY_PREFS_USER_PASSSIZE, (new Gson()).toJson(userPassSize));
+        prefsEditor.commit();
     }
 }

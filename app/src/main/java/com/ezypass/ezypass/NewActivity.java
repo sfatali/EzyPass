@@ -10,6 +10,9 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
+/**
+ * Manage NewActivity UI
+ */
 public class NewActivity extends AppCompatActivity {
 
     private EditText importKeyEditText;

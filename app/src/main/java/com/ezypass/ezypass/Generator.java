@@ -11,6 +11,9 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+/**
+ * Manage key generation
+ */
 class Generator {
 
     private static final int USER_KEY_SIZE = 192;
