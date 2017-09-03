@@ -15,10 +15,10 @@ public class MainWelcomeActivity extends WelcomeActivity {
     protected WelcomeConfiguration configuration() {
         return new WelcomeConfiguration.Builder(this)
                 .defaultBackgroundColor(R.color.colorPrimary)
-                .page(new TitlePage(R.drawable.ic_info_black_24dp, "Welcome to EzyPass"))
-                .page(new BasicPage(R.drawable.ic_info_black_24dp, "No registration", "Your own key will generate all your password extensions"))
-                .page(new BasicPage(R.drawable.ic_info_black_24dp, "Secure", "No server, no account, just remember your key"))
-                .page(new BasicPage(R.drawable.ic_info_black_24dp, "Ezy to use", "Just enter the name of the website or application to secure your passwords."))
+                .page(new TitlePage(R.drawable.ic_info_black_24dp, getResources().getString(R.string.Welcome_Title_Text_Weclome)))
+                .page(new BasicPage(R.drawable.ic_info_black_24dp, getResources().getString(R.string.Welcome_Title_Text_NoRegistration), getResources().getString(R.string.Welcome_Text_NoRegistration)))
+                .page(new BasicPage(R.drawable.ic_info_black_24dp, getResources().getString(R.string.Welcome_Title_Text_Secure), getResources().getString(R.string.Welcome_Text_Secure)))
+                .page(new BasicPage(R.drawable.ic_info_black_24dp, getResources().getString(R.string.Welcome_Title_Text_EzyToUse), getResources().getString(R.string.Welcome_Text_EzyToUse)))
                 .build();
     }
 }

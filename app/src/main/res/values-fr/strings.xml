@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EzyPass</string>
+    <string name="Main_inputText_appName">Nom de l\'application / Site internet</string>
+    <string name="title_activity_settings">Options</string>
+    <string name="title_activity_welcome">Bienvenue</string>
+    <string name="New_Text_Button_Already">Importer une clé</string>
+    <string name="New_Text_Button_New">Générer une nouvelle clé</string>
+    <string name="New_Text_Description_New">EzyPass utilise votre clé personnelle pour générer vos propres extensions de mot de passe.</string>
+    <string name="New_Text_Input_Already">Entrez votre clé ici</string>
+    <string name="New_Title_Already">Vous avez déjà une clé ?</string>
+    <string name="New_Title_New">Nouveau sur EzyPass ?</string>
+    <string name="Settings_Text_MyKey">Ma clé :</string>
+    <string name="Settings_Text_PassSize">Taille de l\'extension :</string>
+    <string name="New_Text_Description_Already">EzyPass peut importer une ancienne clé pour restorer vos extensions de mot de passe.</string>
+    <string name="Welcome_Title_Text_Weclome">Bienvenue sur EzyPass</string>
+    <string name="Welcome_Title_Text_Secure">Sécurisé</string>
+    <string name="Welcome_Title_Text_NoRegistration">Sans inscription</string>
+    <string name="Welcome_Title_Text_EzyToUse">Facile à utiliser</string>
+    <string name="Welcome_Text_Secure">Pas de serveur, pas compte, juste une clé et le tour est joué !</string>
+    <string name="Welcome_Text_NoRegistration">L\'application va générer vos extensions de mots de passes grâce à votre clé personnelle.</string>
+    <string name="Welcome_Text_EzyToUse">Vous n\'avez qu\'à entrer le nom de l\'application ou du site Web pour sécuriser vos mots de passes grâce à une extension.</string>
+    <string name="title_activity_main">" "</string>
+    <string name="title_activity_new">" "</string>
+</resources>

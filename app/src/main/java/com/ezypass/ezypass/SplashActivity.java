@@ -34,6 +34,7 @@ public class SplashActivity extends AppCompatActivity {
     private void startMainActivity() {
         Intent i = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(i);
+        finish();
     }
 
     /**
@@ -42,6 +43,7 @@ public class SplashActivity extends AppCompatActivity {
     private void startWelcomeActivity() {
         Intent i = new Intent(SplashActivity.this, MainWelcomeActivity.class);
         startActivity(i);
+        finish();
     }
 
     /**
@@ -50,5 +52,6 @@ public class SplashActivity extends AppCompatActivity {
     private void startNewActivity() {
         Intent i = new Intent(SplashActivity.this, NewActivity.class);
         startActivity(i);
+        finish();
     }
 }
