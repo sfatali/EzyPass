@@ -74,5 +74,6 @@ public class NewActivity extends AppCompatActivity {
     private void startMainActivity() {
         Intent i = new Intent(NewActivity.this, MainActivity.class);
         startActivity(i);
+        finish();
     }
 }
