@@ -6,6 +6,14 @@
     <string name="title_activity_main"> </string>
 
     <!-- Strings related to Welcome -->
+    <string name="Welcome_Title_Text_Weclome">Welcome to EzyPass</string>
+    <string name="Welcome_Title_Text_NoRegistration">No registration</string>
+    <string name="Welcome_Text_NoRegistration">Your own key will generate all your password extensions</string>
+    <string name="Welcome_Title_Text_Secure">Secure</string>
+    <string name="Welcome_Text_Secure">No server, no account, just remember your key</string>
+    <string name="Welcome_Title_Text_EzyToUse">Ezy to use</string>
+    <string name="Welcome_Text_EzyToUse">Just enter the name of the website or application to secure your passwords.</string>
+
     <!-- Strings related to NewActivity -->
     <string name="New_Title_New">New on Ezyass ?</string>
     <string name="New_Text_Description_New">EzyPass uses your own key to generate your own extensions.</string>

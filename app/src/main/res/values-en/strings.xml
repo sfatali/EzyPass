@@ -12,4 +12,12 @@
     <string name="New_Title_New">New on Ezyass ?</string>
     <string name="Settings_Text_MyKey">"My key : "</string>
     <string name="Settings_Text_PassSize">"My pass size : "</string>
+    <string name="New_Text_Description_Already">EzyPass can import an old key to restore your password extensions.</string>
+    <string name="Welcome_Text_EzyToUse">Just enter the name of the website or application to secure your passwords thanks to a generated extension.</string>
+    <string name="Welcome_Text_NoRegistration">Your own key will generate all your password extensions</string>
+    <string name="Welcome_Text_Secure">No server, no account, just remember your key</string>
+    <string name="Welcome_Title_Text_EzyToUse">Ezy to use</string>
+    <string name="Welcome_Title_Text_NoRegistration">No registration</string>
+    <string name="Welcome_Title_Text_Secure">Secure</string>
+    <string name="Welcome_Title_Text_Weclome">Welcome to EzyPass</string>
 </resources>
