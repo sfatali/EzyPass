@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">EzyPass</string>
+    <string name="Main_inputText_appName">Application / Website name</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_welcome">Welcome</string>
+    <string name="New_Text_Button_Already">Import a key</string>
+    <string name="New_Text_Button_New">Generate a new key</string>
+    <string name="New_Text_Description_New">EzyPass uses your own key to generate your own extensions.</string>
+    <string name="New_Text_Input_Already">Enter your key here</string>
+    <string name="New_Title_Already">Already have a key ?</string>
+    <string name="New_Title_New">New on Ezyass ?</string>
+    <string name="Settings_Text_MyKey">"My key : "</string>
+    <string name="Settings_Text_PassSize">"My pass size : "</string>
+</resources>

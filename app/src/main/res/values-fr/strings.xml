@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">EzyPass</string>
+    <string name="Main_inputText_appName">Nom de l\'application / Site internet</string>
+    <string name="title_activity_settings">Options</string>
+    <string name="title_activity_welcome">Bienvenue</string>
+    <string name="New_Text_Button_Already">Importer une clé</string>
+    <string name="New_Text_Button_New">Générer une nouvelle clé</string>
+    <string name="New_Text_Description_New">EzyPass utilise votre clé personnelle pour générer vos propres extensions de mot de passe.</string>
+    <string name="New_Text_Input_Already">Entrez votre clé ici</string>
+    <string name="New_Title_Already">Vous avez déjà une clé ?</string>
+    <string name="New_Title_New">Nouveau sur EzyPass ?</string>
+    <string name="Settings_Text_MyKey">Ma clé :</string>
+    <string name="Settings_Text_PassSize">Taille de l\'extension :</string>
+</resources>
