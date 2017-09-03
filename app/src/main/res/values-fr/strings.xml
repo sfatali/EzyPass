@@ -20,4 +20,6 @@
     <string name="Welcome_Text_Secure">Pas de serveur, pas compte, juste une clé et le tour est joué !</string>
     <string name="Welcome_Text_NoRegistration">L\'application va générer vos extensions de mots de passes grâce à votre clé personnelle.</string>
     <string name="Welcome_Text_EzyToUse">Vous n\'avez qu\'à entrer le nom de l\'application ou du site Web pour sécuriser vos mots de passes grâce à une extension.</string>
+    <string name="title_activity_main">" "</string>
+    <string name="title_activity_new">" "</string>
 </resources>

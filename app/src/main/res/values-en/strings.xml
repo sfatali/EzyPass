@@ -20,4 +20,6 @@
     <string name="Welcome_Title_Text_NoRegistration">No registration</string>
     <string name="Welcome_Title_Text_Secure">Secure</string>
     <string name="Welcome_Title_Text_Weclome">Welcome to EzyPass</string>
+    <string name="title_activity_main">" "</string>
+    <string name="title_activity_new">" "</string>
 </resources>
